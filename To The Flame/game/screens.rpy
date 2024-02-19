@@ -97,6 +97,7 @@ style frame:
 
 screen say(who, what):
     style_prefix "say"
+    zorder 20
 
     window:
         id "window"
@@ -297,7 +298,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("Start") action Start()
+            textbutton _("New Game") action Start()
 
         else:
 
@@ -402,6 +403,181 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+
+### ImageButton Screens ##########################################
+###
+###
+###
+screen identify():
+    zorder 99
+    tag identify
+
+    default identifyText = ""
+
+    if identify:
+
+        hbox:
+            style_prefix "identify"
+
+            xalign 0.5
+            yalign 0.0
+
+            window:
+                id "identify"
+                style "identify"
+
+                xalign 0.5
+                yalign 0.0
+                text "[identifyText]"
+
+default identify = True
+
+style identify is default
+style identify_text is button_text
+
+style identify:
+    properties gui.button_properties("identify")
+
+style identify_text:
+    properties gui.button_text_properties("identify")
+
+###### Escape the Hole ####################################
+#
+#
+screen cave_a1_nav(): ## Will control the appearance of Navigation buttons, as well as the place you can submit all collected items. 
+    modal False
+    imagebutton: ## This is the button to go to the left, to Area 2
+        xpos 15
+        ypos 500
+        auto "gui/imagebuttons/left_arrow_%s.png"
+        action [Hide("cave_a1_nav"), Jump("cave_Area2")]
+
+    imagebutton: ## This is the button to go "behind", to Area 3
+        xpos 945
+        ypos 960
+        auto "gui/imagebuttons/down_arrow_%s.png"
+        action [Hide("cave_a1_nav"), Jump("cave_Area3")]
+
+    imagebutton: ## This is the button to go to the right, to Area 4
+        xpos 1820
+        ypos 500
+        auto "gui/imagebuttons/right_arrow_%s.png"
+        action [Hide("cave_a1_nav"), Jump("cave_Area4")]
+
+    imagebutton: ## This is clicked to advance the story.
+        xpos 925
+        ypos 70
+        auto "gui/imagebuttons/huckButton_%s.png"
+        action [Hide("cave_a1_nav"), Jump("cave_Area1_Check")] 
+
+
+screen cave_a2_nav(): ## Will control the appearance of Navigation buttons. 
+    modal False
+    imagebutton: ## This is the button to go to the left, to Area 3
+        xpos 15
+        ypos 500
+        auto "gui/imagebuttons/left_arrow_%s.png"
+        action [Hide("cave_a2_nav"), Jump("cave_Area3")]
+
+    imagebutton: ## This is the button to go "behind", to Area 4
+        xpos 945
+        ypos 960
+        auto "gui/imagebuttons/down_arrow_%s.png"
+        action [Hide("cave_a2_nav"), Jump("cave_Area4")]
+
+    imagebutton: ## This is the button to go to the right, to Area 1
+        xpos 1820
+        ypos 500
+        auto "gui/imagebuttons/right_arrow_%s.png"
+        action [Hide("cave_a2_nav"), Jump("cave_Area1")]
+    
+screen cave_a2_items():
+    modal False
+    imagebutton:
+        xpos 100
+        ypos 100
+        auto "gui/imagebuttons/SmallBars_%s.png"
+        action [SetVariable ("small_bars", True), Hide("cave_a2_items"), Jump("cave_Area2_Pickup")]
+
+screen cave_a3_nav(): ## Will control the appearance of Navigation buttons. 
+    modal False
+    imagebutton: ## This is the button to go to the left, to Area 4
+        xpos 15
+        ypos 500
+        auto "gui/imagebuttons/left_arrow_%s.png"
+        action [Hide("cave_a3_nav"), Jump("cave_Area4")]
+
+    imagebutton: ## This is the button to go "behind", to Area 1
+        xpos 945
+        ypos 960
+        auto "gui/imagebuttons/down_arrow_%s.png"
+        action [Hide("cave_a3_nav"), Jump("cave_Area1")]
+
+    imagebutton: ## This is the button to go to the right, to Area 2
+        xpos 1820
+        ypos 500
+        auto "gui/imagebuttons/right_arrow_%s.png"
+        action [Hide("cave_a3_nav"), Jump("cave_Area2")]
+    
+screen cave_a3_items():
+    modal False
+    imagebutton:
+        xpos 100
+        ypos 100
+        auto "gui/imagebuttons/BigBars_%s.png"
+        action [SetVariable ("large_bars", True), Hide("cave_a3_items"), Jump("cave_Area3_Pickup")]
+
+screen cave_a4_nav(): ## Will control the appearance of Navigation buttons. 
+    modal False
+    imagebutton: ## This is the button to go to the left, to Area 1
+        xpos 15
+        ypos 500
+        auto "gui/imagebuttons/left_arrow_%s.png"
+        action [Hide("cave_a4_nav"), Jump("cave_Area1")]
+
+    imagebutton: ## This is the button to go "behind", to Area 2
+        xpos 945
+        ypos 960
+        auto "gui/imagebuttons/down_arrow_%s.png"
+        action [Hide("cave_a4_nav"), Jump("cave_Area2")]
+
+    imagebutton: ## This is the button to go to the right, to Area 3
+        xpos 1820
+        ypos 500
+        auto "gui/imagebuttons/right_arrow_%s.png"
+        action [Hide("cave_a4_nav"), Jump("cave_Area3")]
+    
+screen cave_a4_items():
+    modal False
+    imagebutton:
+        xpos 100
+        ypos 100
+        auto "gui/imagebuttons/rope_%s.png"
+        action [SetVariable ("rope", True), Hide("cave_a4_items"), Jump("cave_Area4_Pickup")]  
+
+###### The Field Mouse Attacks! #############################
+#
+#
+screen itemSelect():
+    modal False
+    imagebutton: ## This is the sword option
+        xpos 132
+        ypos 303
+        auto "gui/imagebuttons/sword_%s.png"
+        action [SetVariable ("playerClass", 1), Hide("itemSelect"), Jump("sword_selected")]
+
+    imagebutton: ## This is the staff option
+        xpos 912
+        ypos 265
+        auto "gui/imagebuttons/staff_%s.png"
+        action [SetVariable("playerClass", 2), Hide("itemSelect"), Jump("staff_selected")]
+
+    imagebutton: ## This is the harp option
+        xpos 1406
+        ypos 377
+        auto "gui/imagebuttons/harp_%s.png"
+        action [SetVariable("playerClass", 3), Hide("itemSelect"), Jump("harp_selected")]
+
 
 
 ## Game Menu screen ############################################################

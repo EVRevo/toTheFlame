@@ -52,6 +52,7 @@ define gui.hover_muted_color = '#005b7a'
 ## The colors used for dialogue and menu choice text.
 define gui.text_color = '#ffffff'
 define gui.interface_text_color = '#ffffff'
+define gui.identify_color = '#ffff'
 
 
 ## Fonts and Font Sizes ########################################################
@@ -106,8 +107,8 @@ define gui.textbox_yalign = 1.0
 
 ## The placement of the speaking character's name, relative to the textbox.
 ## These can be a whole number of pixels from the left or top, or 0.5 to center.
-define gui.name_xpos = 360
-define gui.name_ypos = 0
+define gui.name_xpos = 450
+define gui.name_ypos = 40
 
 ## The horizontal alignment of the character's name. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -130,11 +131,11 @@ define gui.namebox_tile = False
 ## The placement of dialogue relative to the textbox. These can be a whole
 ## number of pixels relative to the left or top side of the textbox, or 0.5 to
 ## center.
-define gui.dialogue_xpos = 402
-define gui.dialogue_ypos = 75
+define gui.dialogue_xpos = 500
+define gui.dialogue_ypos = 95
 
 ## The maximum width of dialogue text, in pixels.
-define gui.dialogue_width = 1116
+define gui.dialogue_width = 900
 
 ## The horizontal alignment of the dialogue text. This can be 0.0 for left-
 ## aligned, 0.5 for centered, and 1.0 for right-aligned.
@@ -168,6 +169,18 @@ define gui.button_text_idle_color = gui.idle_color
 define gui.button_text_hover_color = gui.hover_color
 define gui.button_text_selected_color = gui.selected_color
 define gui.button_text_insensitive_color = gui.insensitive_color
+
+define gui.identify_text_xalign = 0.1
+define gui.identify_text_size = 45
+define gui.identify_text_color = gui.identify_color
+define gui.identify_text_outlines = [(10, "#000000ff", 0, 0)]
+define gui.identify_width = None
+define gui.identify_height = None
+define gui.identify_borders = Borders(5, 5,5,5)
+define gui.identify_tile = False
+define gui.identify_xalign = 0.0
+define gui.identify_xpos = 50
+define gui.identify_ypos = 0
 
 ## The horizontal alignment of the button text. (0.0 is left, 0.5 is center, 1.0
 ## is right).
