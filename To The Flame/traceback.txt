@@ -1,0 +1,63 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 309, in script
+    with dissolve
+  File "game/screens.rpy", line 561, in execute
+    screen itemSelect():
+  File "game/screens.rpy", line 561, in execute
+    screen itemSelect():
+  File "game/screens.rpy", line 563, in execute
+    imagebutton: ## This is the sword option
+  File "game/screens.rpy", line 563, in keywords
+    imagebutton: ## This is the sword option
+  File "game/screens.rpy", line 567, in <module>
+    action [SetVarialbe ("playerClass", 1), Hide("itemSelect"), Jump("sword_selected")]
+NameError: name 'SetVarialbe' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 309, in script
+    with dissolve
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\ast.py", line 1678, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\exports.py", line 1757, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 2975, in do_with
+    return self.interact(trans_pause=True,
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 3579, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 4052, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 681, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 681, in visit_all
+    d.visit_all(callback, seen)
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 681, in visit_all
+    d.visit_all(callback, seen)
+  [Previous line repeated 1 more time]
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\screen.py", line 476, in visit_all
+    callback(self)
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\core.py", line 4052, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\screen.py", line 487, in per_interact
+    self.update()
+  File "C:\Users\Evelyn Ragan\Downloads\renpy-8.1.1-sdk\renpy\display\screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/screens.rpy", line 561, in execute
+    screen itemSelect():
+  File "game/screens.rpy", line 561, in execute
+    screen itemSelect():
+  File "game/screens.rpy", line 563, in execute
+    imagebutton: ## This is the sword option
+  File "game/screens.rpy", line 563, in keywords
+    imagebutton: ## This is the sword option
+  File "game/screens.rpy", line 567, in <module>
+    action [SetVarialbe ("playerClass", 1), Hide("itemSelect"), Jump("sword_selected")]
+NameError: name 'SetVarialbe' is not defined
+
+Windows-10-10.0.22621 AMD64
+Ren'Py 8.1.1.23060707
+To The Flame 1.0
+Fri Feb 16 15:20:29 2024
